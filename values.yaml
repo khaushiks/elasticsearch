@@ -184,7 +184,7 @@ podManagementPolicy: "OrderedReady"
 # The environment variables injected by service links are not used, but can lead to slow Elasticsearch boot times when
 # there are many services in the current namespace.
 # If you experience slow pod startups you probably want to set this to `false`.
-enableServiceLinks: true
+enableServiceLinks: false
 
 protocol: https
 httpPort: 9200
