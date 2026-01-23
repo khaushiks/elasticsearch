@@ -17,7 +17,6 @@ roles:
   - data_warm
   - data_cold
   - ingest
-  - ml
   - remote_cluster_client
   - transform
 
@@ -90,7 +89,7 @@ esJavaOpts: "" # example: "-Xmx1g -Xms1g"
 resources:
   requests:
     cpu: "500m"
-    memory: "2Gi"
+    memory: "1Gi"
   limits:
     cpu: "1"
     memory: "2Gi"
