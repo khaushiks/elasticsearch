@@ -180,7 +180,7 @@ nodeAffinity: {}
 
 # The default is to deploy all pods serially. By setting this to parallel all pods are started at
 # the same time when bootstrapping the cluster
-podManagementPolicy: "Parallel"
+podManagementPolicy: "OrderedReady"
 
 # The environment variables injected by service links are not used, but can lead to slow Elasticsearch boot times when
 # there are many services in the current namespace.
@@ -239,7 +239,7 @@ readinessProbe:
   timeoutSeconds: 5
 
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html#request-params wait_for_status
-clusterHealthCheckParams: "wait_for_status=green&timeout=1s"
+clusterHealthCheckParams: "wait_for_status=yellow&timeout=5s"
 
 ## Use an alternate scheduler.
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
