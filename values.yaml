@@ -67,13 +67,16 @@ resources:
     memory: "2Gi"
 
 volumeClaimTemplate:
-  accessModes: ["ReadWriteOnce"]
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 30Gi
 
 persistence:
   enabled: true
+  labels:
+    enabled: false   # <-- REQUIRED to avoid Helm nil pointer
 
 rbac:
   create: false
