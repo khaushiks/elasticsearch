@@ -31,8 +31,7 @@ esConfig:
   elasticsearch.yml: |
     # SINGLE NODE
     discovery.type: single-node
-    xpack.security.enrollment.enabled: true
-    network.host: 0.0.0.0
+    
  #  cluster.initial_master_nodes: []
  #  discovery.seed_hosts: []
 #  elasticsearch.yml: |
@@ -91,7 +90,7 @@ podAnnotations: {}
 # additionals labels
 labels: {}
 
-esJavaOpts: "" # example: "-Xmx1g -Xms1g"
+esJavaOpts: "-Xms1g -Xmx1g" # example: "-Xmx1g -Xms1g"
 
 resources:
   requests:
@@ -238,14 +237,13 @@ terminationGracePeriod: 120
 sysctlVmMaxMapCount: 262144
 
 readinessProbe:
-  failureThreshold: 3
-  initialDelaySeconds: 10
+  initialDelaySeconds: 30
   periodSeconds: 10
-  successThreshold: 3
-  timeoutSeconds: 5
+  timeoutSeconds: 10
+  failureThreshold: 6
 
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html#request-params wait_for_status
-clusterHealthCheckParams: "wait_for_status=yellow&timeout=5s"
+clusterHealthCheckParams: "wait_for_status=yellow&timeout=30s"
 
 ## Use an alternate scheduler.
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
