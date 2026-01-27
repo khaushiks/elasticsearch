@@ -29,9 +29,10 @@ esMajorVersion: ""
 # such as elasticsearch.yml and log4j2.properties
 esConfig:
   elasticsearch.yml: |
+    discovery.type: single-node
     xpack.security.enrollment.enabled: true
-    cluster.initial_master_nodes: []
-    discovery.seed_hosts: []
+ #  cluster.initial_master_nodes: []
+ #  discovery.seed_hosts: []
 #  elasticsearch.yml: |
 #    key:
 #      nestedkey: value
