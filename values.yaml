@@ -32,7 +32,6 @@ esConfig:
     # SINGLE NODE
     discovery.type: single-node
     xpack.security.enrollment.enabled: true
-    network.host: 0.0.0.0
  #  cluster.initial_master_nodes: []
  #  discovery.seed_hosts: []
 #  elasticsearch.yml: |
