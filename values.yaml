@@ -76,10 +76,13 @@ volumeClaimTemplate:
 persistence:
   enabled: true
   labels:
-    enabled: false   # <-- REQUIRED to avoid Helm nil pointer
+    enabled: false
 
 rbac:
   create: false
+
+podSecurityPolicy:
+  create: false   # 🔥 REQUIRED to avoid Helm nil pointer
 
 podSecurityContext:
   fsGroup: 1000
