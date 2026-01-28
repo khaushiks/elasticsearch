@@ -22,16 +22,16 @@ roles:
 
 replicas: 1
 
+
+clusterInitialMasterNodes: []
+
+
 esMajorVersion: ""
 
 # Allows you to add any config files in /usr/share/elasticsearch/config/
 # such as elasticsearch.yml and log4j2.properties
 esConfig:
   elasticsearch.yml: |
-    xpack.security.enabled: true
-    xpack.security.http.ssl.enabled: false   # ← DISABLE HTTPS FOR DEV
-    xpack.security.transport.ssl.enabled: false
-    discovery.type: single-node              # ← CRITICAL FOR SINGLE NODE
    
 #  elasticsearch.yml: |
 #    key:
@@ -48,9 +48,7 @@ esJvmOptions: {}
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
 # syntax here
-extraEnvs:
-  - name: ELASTIC_PASSWORD
-    value: "Fb/es/kibana@123"
+extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
 
@@ -194,7 +192,7 @@ podManagementPolicy: "OrderedReady"
 # If you experience slow pod startups you probably want to set this to `false`.
 enableServiceLinks: false
 
-protocol: http
+protocol: https
 httpPort: 9200
 transportPort: 9300
 
