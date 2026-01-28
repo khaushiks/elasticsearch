@@ -23,6 +23,9 @@ roles:
 replicas: 1
 
 
+clusterInitialMasterNodes: []
+
+
 esMajorVersion: ""
 
 # Allows you to add any config files in /usr/share/elasticsearch/config/
@@ -32,8 +35,6 @@ esConfig:
     # SINGLE NODE
     discovery.type: single-node
     
-    cluster.initial_master_nodes: []
-    discovery.seed_hosts: []
 #  elasticsearch.yml: |
 #    key:
 #      nestedkey: value
@@ -49,11 +50,7 @@ esJvmOptions: {}
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
 # syntax here
-extraEnvs:
-  - name: discovery.seed_hosts
-    value: ""
-  - name: cluster.initial_master_nodes
-    value: ""
+extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
 
