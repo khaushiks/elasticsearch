@@ -96,10 +96,10 @@ esJavaOpts: "-Xms1g -Xmx1g" # example: "-Xmx1g -Xms1g"
 resources:
   requests:
     cpu: "500m"
-    memory: "1Gi"
+    memory: "2Gi"
   limits:
     cpu: "1"
-    memory: "2Gi"
+    memory: "4Gi"
 
 initResources: {}
 # limits:
@@ -239,8 +239,8 @@ terminationGracePeriod: 120
 sysctlVmMaxMapCount: 262144
 
 readinessProbe:
-  failureThreshold: 6       # allow more failures before marking unhealthy
-  initialDelaySeconds: 20  # give Elasticsearch more time to start
+  failureThreshold: 10       # allow more failures before marking unhealthy
+  initialDelaySeconds: 60  # give Elasticsearch more time to start
   periodSeconds: 10
   successThreshold: 3
   timeoutSeconds: 10
